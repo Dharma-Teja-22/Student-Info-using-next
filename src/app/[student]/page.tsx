@@ -23,14 +23,16 @@ export interface Student {
   image: string;
 }
 
-export default function Page(id: unknown) {
+export default function Page(id: any) {
+
+  console.log(id,"dhkalfklaml---------------------")
   const [student, setStudent] = useState<Student | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchStudent = async () => {
-      if (!id.searchParams.id) return; // No ID, do not fetch
+      // if (!id.searchParams.id) return "No ID, do not fetch";
       try {
         const res = await fetch(`http://freetestapi.com/api/v1/students/${id.searchParams.id}`);
         if (!res.ok) {
@@ -54,12 +56,14 @@ export default function Page(id: unknown) {
   return (
     <>
     <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-br from-blue-200 to-blue-20000">
+      
       <Link
         href='/info' 
         className="mb-4 p-2 mr-[1240px] "
       >
         ← Back
       </Link>
+
       <div className="w-full max-w-xl p-6 bg-white rounded-lg shadow-lg transform transition-transform duration-500 hover:scale-105">
         <div className="flex items-center mb-4">
           {/* <img src={student.image} alt={student.name} className="w-32 h-32 rounded-full shadow-lg" /> */}

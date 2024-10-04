@@ -63,7 +63,7 @@ export default function Page() {
           <input
             type="text"
             className="grow"
-            placeholder="Search by Name"
+            placeholder="Search by Nam"
             value={searchTerm}
             onChange={e => setSearchTerm(e.target.value)}
           />
