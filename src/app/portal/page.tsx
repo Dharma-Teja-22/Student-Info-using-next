@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-// import Navbar from '../navbar';
+import Navbar from '../navbar';
 import Link from 'next/link';
 
 const Page: React.FC = () => {
@@ -28,7 +28,7 @@ const Page: React.FC = () => {
 
   return (
     <div className="flex flex-col ">
-      {/* <Navbar /> */}
+      <Navbar />
       
       <main className="flex-grow container mx-auto p-6 mb-5">
         <section className="mb-12 text-center">

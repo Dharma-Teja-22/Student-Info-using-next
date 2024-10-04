@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export interface Address {
@@ -23,7 +24,6 @@ export interface Student {
 }
 
 export default function Page(id: unknown) {
-    console.log(id)
   const [student, setStudent] = useState<Student | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -44,7 +44,6 @@ export default function Page(id: unknown) {
         setLoading(false);
       }
     };
-
     fetchStudent();
   }, [id]);
 
@@ -53,7 +52,14 @@ export default function Page(id: unknown) {
   if (!student) return <p className="text-center">No student found.</p>;
 
   return (
+    <>
     <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-br from-blue-200 to-blue-20000">
+      <Link
+        href='/info' 
+        className="mb-4 p-2 mr-[1240px] "
+      >
+        ← Back
+      </Link>
       <div className="w-full max-w-xl p-6 bg-white rounded-lg shadow-lg transform transition-transform duration-500 hover:scale-105">
         <div className="flex items-center mb-4">
           {/* <img src={student.image} alt={student.name} className="w-32 h-32 rounded-full shadow-lg" /> */}
@@ -84,5 +90,6 @@ export default function Page(id: unknown) {
         </div>
       </div>
     </div>
+    </>
   );
 }
